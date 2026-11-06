@@ -36,24 +36,15 @@ function buscarHeroes(nombre) {
     }
 }
 
-function filtrarPorEstadisticas(estadistica, filtro) {
+function filtrarPorEstadisticaNumerica(nombreEstadistica, valorMinimo) {
     let filtrados = [];
-    const nombresEstadisticas = ['vida', 'dano', 'tipo', 'fuerza', 'velocidad', 'inteligencia']
-    for (let i = 0; i < nombresEstadisticas.length; i++) {
-        if (ignorarMayusculas(estadistica) === ignorarMayusculas(nombresEstadisticas[i])) {
-            if (i === 2) {
-                for (let j = 0; j < catalogoHeroes.length; j++) {
-                    if (filtro === catalogoHeroes[j].estadisticas.tipo) {
-                        filtrados.push(catalogoHeroes[j]);
-                    }
-                }
-            } else {
-                for (let j = 0; j < catalogoHeroes.length; j++) {
-                    if (filtro === catalogoHeroes[j].estadisticas.nombreEstadistica[i]) {
-                        filtrados.push(catalogoHeroes[j]);
-                    }
-                }
-            }
-        }
+    for (let i = 0; i < catalogoHeroes.length; i++) {
+    if (catalogoHeroes[i].estadisticas.nombreEstadistica > valorMinimo) {
+       filtrados.push(catalogoHeroes[i]);
     }
+    }
+
+    return filtrados;
 }
+
+console.log( heroe1.mediaPoder) ;

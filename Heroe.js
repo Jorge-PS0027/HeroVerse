@@ -50,7 +50,7 @@ export default class Heroe {
     }
 
     get mediaPoder() {
-        return 100;
+        return (this.estadisticas.dano + this.estadisticas.fuerza + this.estadisticas.inteligencia + this.estadisticas.velocidad + this.estadisticas.vida) / 5;
     }
 
     toString() {
