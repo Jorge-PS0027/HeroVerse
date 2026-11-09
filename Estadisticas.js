@@ -1,5 +1,5 @@
-export default class Estadisticas {
-    constructor(vida, dano, tipo, fuerza, velocidad, inteligencia) {
+export default function Estadisticas (vida, dano, tipo, fuerza, velocidad, inteligencia)  {
+
         this._vida = vida;
         this._dano = dano;
         this._tipo = tipo;
@@ -7,7 +7,7 @@ export default class Estadisticas {
         this._velocidad = velocidad;
         this._inteligencia = inteligencia;
     }
-
+/*
 
     get vida() {
         return this._vida;
@@ -60,6 +60,10 @@ export default class Estadisticas {
     toString() {
         return `Tipo: ${this._tipo} | Vida: ${this._vida} | Daño: ${this._dano} | Fuerza: ${this._fuerza} | Velocidad: ${this._velocidad} | Inteligencia: ${this._inteligencia}`;
     }
+*/
 
 
+Estadisticas.prototype.toString = function () {
+    return `Tipo: ${this._tipo} | Vida: ${this._vida} | Daño: ${this._dano} | Fuerza: ${this._fuerza} | Velocidad: ${this._velocidad} | Inteligencia: ${this._inteligencia}`
 }
+

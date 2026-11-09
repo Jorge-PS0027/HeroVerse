@@ -1,14 +1,13 @@
-export default class Heroe {
+export default function Heroe(id, nombre, poder, debilidad, personalidad, estadisticas) {
+    this._id = id;
+    this._nombre = nombre;
+    this._poder = poder;
+    this._debilidad = debilidad;
+    this._personalidad = personalidad;
+    this._estadisticas = estadisticas;
+}
 
-    constructor(nombre, poder, debilidad, personalidad, estadisticas) {
-        this._nombre = nombre;
-        this._poder = poder;
-        this._debilidad = debilidad;
-        this._personalidad = personalidad;
-        this._estadisticas = estadisticas;
-    }
-
-
+/*
     get nombre() {
         return this._nombre;
     }
@@ -60,7 +59,17 @@ export default class Heroe {
                 -- Atributos de combate --
                 ${this._estadisticas.toString()}`;
     }
+    */
 
+Heroe.prototype.toString = function () {
+    return `Héroe: ${this._nombre} (${this._personalidad})
+                Poder principal: ${this._poder}
+                Debilidad: ${this._debilidad}
+                -- Atributos de combate --
+                ${this._estadisticas.toString()}`;
 }
 
+Heroe.prototype.calcularMediaPoder = function () {
+    return (this._estadisticas._dano + this._estadisticas._fuerza + this._estadisticas._inteligencia + this._estadisticas._velocidad + this._estadisticas._vida) / 5;
+}
 

@@ -1,5 +1,7 @@
 import Heroe from "./Heroe.js";
 import Estadisticas from "./Estadisticas.js";
+import Villano from "./Villano.js";
+import HeroeCopia from "./HeroeCopia.js";
 
 // 1. Lamine Tamal
 const stats1 = new Estadisticas(90, 80, 'magico', 50, 80, 15);
@@ -21,30 +23,41 @@ const heroe4 = new Heroe('Señor Siesta', 'Invoca camas elásticas para que los 
 const stats5 = new Estadisticas(99, 90, 'físico', 95, 92, 70);
 const heroe5 = new Heroe('El Bicho', 'Al gritar "¡SIUUU!" crea una onda expansiva que aturde a los villanos', 'Los espejos, no puede evitar pararse a mirar sus propios abdominales', 'Extremadamente competitivo y se niega a beber otra cosa que no sea agua', stats5);
 
+const stats6 = new Estadisticas(99, 90, 'físico', 95, 92, 70);
+const villano1 = new Villano('El Jajas', 'Contagia su Risa a la gente haciendo que no puedan parar de reir','Alguien contándole un chiste malísimo', 'Extremadamente competitivo y se niega a beber otra cosa que no sea agua', stats6, 'Hacer que toda la ciudad se muera de la risa para poder robar los bancos sin oposición');
+
+const copia1 = Object.create(heroe5);
+
 
 const catalogoHeroes = [heroe1, heroe2, heroe3, heroe4, heroe5];
+const catalogoVillanos = [villano1];
 
 function ignorarMayusculas(texto) {
     return texto.toLocaleLowerCase();
 }
 
-function buscarHeroes(nombre) {
-    for (let i = 0; i < catalogoHeroes.length; i++) {
-        if (ignorarMayusculas(nombre) === ignorarMayusculas(catalogoHeroes[i].nombre)) {
-            return catalogoHeroes[i]
+function buscarHeroes(nombre, catalogo) {
+    for (let i = 0; i < catalogo.length; i++) {
+        if (ignorarMayusculas(nombre) === ignorarMayusculas(catalogo[i]._nombre)) {
+            return catalogo[i]
         }
     }
 }
 
-function filtrarPorEstadisticaNumerica(nombreEstadistica, valorMinimo) {
+function filtrarPorEstadisticaNumerica(nombreEstadistica, valorMinimo, catalogo) {
     let filtrados = [];
-    for (let i = 0; i < catalogoHeroes.length; i++) {
-    if (catalogoHeroes[i].estadisticas.nombreEstadistica > valorMinimo) {
-       filtrados.push(catalogoHeroes[i]);
-    }
+    for (let i = 0; i < catalogo.length; i++) {
+        if (catalogo[i]._estadisticas[nombreEstadistica] > valorMinimo) {
+            filtrados.push(catalogo[i]);
+        }
     }
 
     return filtrados;
 }
 
-console.log( heroe1.mediaPoder) ;
+
+function copiaHeroe (nombre){
+
+}
+
+console.log(villano1)
